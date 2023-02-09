@@ -1,0 +1,59 @@
+
+
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
+<h3 style="font-family: Arial, Helvetica, sans-serif"><b>My Products</b></h3>
+<table id="customers">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Ratings (Out Of 5)</th>
+      <th>Actions</th>
+    </tr>
+    <% @items.each do |items|%>
+      <tr>
+        <td><%= items.id%></td>
+        <td><%= items.name%></td>
+        <td><%= items.price%></td>
+        <td>
+        <span><%= items.rating%></span></td>
+        <td>
+        <span><%= link_to "Destroy", item_path(items) ,data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                    }%> /
+        <%= link_to "Edit", edit_item_path(items) %></span> /  <%= link_to "Add", new_item_path(items) %></span>
+        </td>
+      </tr>
+    <% end %>
+    
+
+</table>
+
+
+
+
