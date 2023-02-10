@@ -1,0 +1,12 @@
+<h1>Your Orders</h1>
+<% @orders.each do |orders|%>
+<li>
+  <i>
+   <%= orders.name %>
+  </i> 
+</li>   
+<% end %>   
+
+<h6>
+ <%= link_to "All Items", users_path %>
+</h6>

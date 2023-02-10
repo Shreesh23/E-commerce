@@ -1,0 +1,10 @@
+<h1>Ordered Items</h1>
+<%  @OrderedItems.each do |orderedItem|%>
+<p>Item Added Successfully</p>   
+<li>
+   <%# <%= orderedItem.quantity %>
+   <%= orderedItem.quantity %>
+</li>   
+<% end %>   
+<br>
+<%=  link_to "Home" ,users_path%>
