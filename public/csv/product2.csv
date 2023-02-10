@@ -1,7 +1,7 @@
 name,price,rating
 nil,30,3
 Copy,nil,3
-Pen,nil,3
+Pen,,3
 Spacks,1000,4
 Keyboard,500,3
 Bag,400,3

@@ -1,16 +1,19 @@
 
 <% if user_signed_in? %> 
- <div> Welcome <%= current_user.email %> </div> 
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-<% else %>
-  
+ <center>
+    <div style="color:White;font-size:50px;"> Welcome Shreesh! </div> 
+ </center><br>
 <% end %>
-<style>
-body{
-  background-image: url(<%= asset_path 'pexels-man-dy-1129382.jpg' %>);
-}
+<style> 
+
+  body{
+    background-image: url(<%= asset_path 'pexels-man-dy-1129382.jpg' %>);
+    }
+
 </style>
 
-<body>
 
-</body>
+<%# 
+<div>
+<%= current_user.email %>
+<%# <div> %> 

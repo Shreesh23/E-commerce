@@ -25,8 +25,8 @@
    
 <div>
     <% if user_signed_in? %>
-      <strong style="color:White"> Logged in as </strong><strong style="color:White"><%= current_user.email %></strong>.
-        
+      <strong style="color:White;font-size:15px"> Logged in as </strong><strong style="color:White"><%= current_user.email %></strong>.<br>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete %>  
       <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -36,14 +36,11 @@
               <li class="active"><a href="/">Home</a></li>
               <li class="active"><a href="/users/products">Products</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">        
-            </ul>
-        </div>
+          </div>
       </nav> 
-      <% else %>
-        
-      <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
+   <% else %>
+     <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
             <div class="navbar-header">
               <a class="navbar-brand" href="/">E-Commerce</a>
             </div>
@@ -52,15 +49,18 @@
               <%# <li><a href="/users/products">Products</a></li> %>
               <%# <li><a href="#">Your Orders</a></li> %>
             </ul>
-          <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
               <li><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
               <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
       </nav> 
+      
   
     <% end %>
+   
 </div>
+    
     <p style="padding:-15px;margin-bottom:-15px" class="notice"><%= notice %></p> 
     <p style="padding:-15px;margin-bottom:-38px" class="alert"><%= alert %></p> 
     <%= yield %>
