@@ -643,8 +643,63 @@
           1,
           null
         ]
+      },
+      "/home/developer/Ecommercerails/spec/models/item_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          4,
+          4,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Ecommercerails/app/models/item.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/developer/Ecommercerails/spec/models/user_spec.rb": {
+        "lines": [
+
+        ]
       }
     },
-    "timestamp": 1676037394
+    "timestamp": 1676265340
   }
 }

@@ -1,4 +1,17 @@
-
+<html>
+  <head>
+    <title>Ecommercerails</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  </head>
 
 <style>
 #customers {
@@ -24,10 +37,16 @@
   color: white;
 }
 </style>
+<body>
+  <nav style="Color:Black">
+  <li>
+   hello
+  </li>
 
-<h3 style="font-family: Arial, Helvetica, sans-serif"><b>My Products</b></h3>
-<%= link_to "Export It!", items_path(format: 'csv') %>
-<table id="customers">
+  </nav>
+  <h3 style="font-family: Arial, Helvetica, sans-serif"><b>My Products</b></h3>
+  <%= link_to "Export It!", items_path(format: 'csv') %>
+  <table id="customers">
     <tr>
       <th>ID</th>
       <th>Name</th>
@@ -51,10 +70,5 @@
             </td>
         </tr>
     <% end %>
-    
-
-</table>
-
-
-
-
+  </table>
+</body>

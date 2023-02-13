@@ -2,7 +2,7 @@ require 'csv'
 class Item < ApplicationRecord
     validates :name, presence: true
     validates :price, presence: true
-    # validates_length_of :rating, is: 5,  message: "Number must be 5 digit long"  
+    validates_length_of :rating, is: 5,  message: "Number must be 5 digit long"  
     def self.to_csv
         items = all
         CSV.generate do |csv|
