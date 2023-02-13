@@ -2,20 +2,20 @@ class ItemsController < ApplicationController
     def index
       @items = Item.all
       respond_to do |format|
-      format.html
-      format.csv { send_data Item.to_csv, filename: "items-#{DateTime.now.strftime("%d%m%Y%H%M")}.csv"}
+        format.html
+        format.csv { send_data Item.to_csv, filename: "items-#{DateTime.now.strftime("%d%m%Y%H%M")}.csv"}
       end
-    end 
+    end
     def new
-    @item = Item.new
+      @item = Item.new
     end
     def create
       @item = Item.new(item_params)
       if @item.save
-      # CrudNotificationMailer.create_notification(@item).deliver_later
-      redirect_to users_path
+        # CrudNotificationMailer.create_notification(@item).deliver_later
+        redirect_to users_path
       else
-      render :new, status: :unprocessable_entity
+        render :new, status: :unprocessable_entity
       end
     end  
     def destroy
@@ -30,14 +30,14 @@ class ItemsController < ApplicationController
     def update
       @item = Item.find(params[:id])
       if @item.update(item_params)
-      # CrudNotificationMailer.update_notification(@item).deliver_later
-      redirect_to(controller: :users, action: :show)
+        # CrudNotificationMailer.update_notification(@item).deliver_later
+        redirect_to(controller: :users, action: :show)
       else
-      render :edit, status: :unprocessable_entity
+        render :edit, status: :unprocessable_entity
       end
     end
-  private
+    private
     def item_params
-    params.require(:item).permit(:name, :price, :rating)
+      params.require(:item).permit(:name, :price, :rating)
     end
-end    
+end
