@@ -1,6 +1,5 @@
-
-
 <style>
+
 #customers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -26,6 +25,9 @@
 </style>
 
 <h3 style="font-family: Arial, Helvetica, sans-serif"><b>My Products</b></h3>
+<%= link_to "Export It", items_path(format: 'csv') %>
+<li class=""><%= button_to 'SignOut', destroy_user_session_path, method: :delete %></li>
+<li class=""><%= link_to 'Home', users_path %></li>
 <table id="customers">
     <tr>
       <th>ID</th>
@@ -34,26 +36,20 @@
       <th>Ratings (Out Of 5)</th>
       <th>Actions</th>
     </tr>
-    <% @items.each do |items|%>
-      <tr>
-        <td><%= items.id%></td>
-        <td><%= items.name%></td>
-        <td><%= items.price%></td>
-        <td>
-        <span><%= items.rating%></span></td>
-        <td>
-        <span><%= link_to "Destroy", item_path(items) ,data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                    }%> /
-        <%= link_to "Edit", edit_item_path(items) %></span> /  <%= link_to "Add", new_item_path(items) %></span>
-        </td>
-      </tr>
-    <% end %>
-    
-
+  <% @items.each do |items|%>
+    <tr>
+      <td><%= items.id%></td>
+      <td><%= items.name%></td>
+      <td><%= items.price%></td>
+      <td>
+      <span><%= items.rating%></span></td>
+      <td>
+      <span><%= link_to "Destroy", item_path(items) ,data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                  }%> /
+      <%= link_to "Edit", edit_item_path(items) %></span> /  <%= link_to "Add", new_item_path(items) %></span>
+      </td>
+    </tr>
+  <% end %>
 </table>
-
-
-
-

@@ -1,7 +1,5 @@
 class OrderedItemsController < ApplicationController
-    def index
-
+  def index
     @OrderedItems = OrderedItem.all
-
-    end
+  end
 end

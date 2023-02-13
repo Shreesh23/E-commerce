@@ -1,6 +1,5 @@
 # Preview all emails at http://localhost:3000/rails/mailers/crud_notification_mailer
 class CrudNotificationMailerPreview < ActionMailer::Preview
-
   # Preview this email at http://localhost:3000/rails/mailers/crud_notification_mailer/create_notificatio
   def create_notificatio
     CrudNotificationMailer.create_notificatio
@@ -15,5 +14,4 @@ class CrudNotificationMailerPreview < ActionMailer::Preview
   def delete_notification
     CrudNotificationMailer.delete_notification
   end
-
 end
