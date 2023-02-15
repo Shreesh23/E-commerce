@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class User < ApplicationRecord
   rolify
   has_many :items
@@ -9,6 +10,6 @@ class User < ApplicationRecord
   after_create :assign_default_role
 
   def assign_default_role
-    self.add_role(:newuser) if self.roles.blank?
-  end  
+    add_role(:newuser) if roles.blank?
+  end
 end

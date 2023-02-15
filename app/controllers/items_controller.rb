@@ -1,15 +1,16 @@
 # frozen_string_literal: true
+
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   def index
     @items = Item.all
-    
+
     respond_to do |format|
       format.html
       format.csv { send_data Item.to_csv, filename: "items-#{DateTime.now.strftime('%d%m%Y%H%M')}.csv" }
     end
   end
-  
+
   def new
     @item = Item.new
   end

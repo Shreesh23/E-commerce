@@ -37,3 +37,4 @@
 # Ignore uploaded files in development.
 /test/*
 /home/developer/Ecommercerails/.byebug_history
+/helpers/*
