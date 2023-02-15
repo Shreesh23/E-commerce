@@ -1,9 +1,10 @@
+# frozen_string_literal: true
 class UsersController < ApplicationController
   def index
-    @items = Item.all
+    @users = User.all
   end
 
   def show
-    @items = Item.all
+    @users = User.all
   end
 end
