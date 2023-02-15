@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,13 +12,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_230_207_105_515) do
+ActiveRecord::Schema[7.0].define(version: 20_230_215_105_832) do
   create_table 'items', force: :cascade do |t|
     t.string 'name'
     t.integer 'price'
     t.integer 'rating'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.integer 'user_id'
   end
 
   create_table 'ordered_items', force: :cascade do |t|
@@ -34,6 +37,17 @@ ActiveRecord::Schema[7.0].define(version: 20_230_207_105_515) do
     t.datetime 'updated_at', null: false
   end
 
+  create_table 'roles', force: :cascade do |t|
+    t.string 'name'
+    t.string 'resource_type'
+    t.integer 'resource_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index %w[name resource_type resource_id], name: 'index_roles_on_name_and_resource_type_and_resource_id'
+    t.index ['name'], name: 'index_roles_on_name'
+    t.index %w[resource_type resource_id], name: 'index_roles_on_resource'
+  end
+
   create_table 'users', force: :cascade do |t|
     t.string 'email', default: '', null: false
     t.string 'encrypted_password', default: '', null: false
@@ -44,5 +58,13 @@ ActiveRecord::Schema[7.0].define(version: 20_230_207_105_515) do
     t.datetime 'updated_at', null: false
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+  end
+
+  create_table 'users_roles', id: false, force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'role_id'
+    t.index ['role_id'], name: 'index_users_roles_on_role_id'
+    t.index %w[user_id role_id], name: 'index_users_roles_on_user_id_and_role_id'
+    t.index ['user_id'], name: 'index_users_roles_on_user_id'
   end
 end

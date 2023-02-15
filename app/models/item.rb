@@ -1,10 +1,11 @@
-require 'csv'
+# frozen_string_literal: true
 
+require 'csv'
 class Item < ApplicationRecord
+  belongs_to :user
   validates :name, presence: true
   validates :price, presence: true
-  validates_length_of :rating, is: 5, message: 'Number must be 5 digit long'
-
+  validates :rating, inclusion: { in: 0..5 }, presence: { message: ' Must be within 0-5' }
   def self.to_csv
     posts = all
     CSV.generate do |csv|
