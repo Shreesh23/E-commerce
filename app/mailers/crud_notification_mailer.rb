@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CrudNotificationMailer < ApplicationMailer
   def create_notification(object)
     @object = object
