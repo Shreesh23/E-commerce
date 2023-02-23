@@ -1,32 +1,28 @@
 <%= form_with model: @item do |form| %>
   <div>
-        <%= form.label :name %><br><br>
-        <%= form.text_field :name %>
-        <% @item.errors.full_messages_for(:name).each do |message| %>
-        <div><%= message %></div>
-        <% end %>
+    <%= form.label :name %><br><br>
+    <%= form.text_field :name %>
+    <% @item.errors.full_messages_for(:name).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
   </div>
-
   <div>
-        <%= form.label :price %><br>
-        <%= form.text_area :price %><br>
-        <% @item.errors.full_messages_for(:price).each do |message| %>
-        <div><%= message %></div>
-        <% end %>
+    <%= form.label :price %><br>
+    <%= form.text_area :price %><br>
+    <% @item.errors.full_messages_for(:price).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
   </div>
-   <div>
-        <%= form.label :rating %><br>
-        <%= form.text_area :rating %><br>
-        <% @item.errors.full_messages_for(:rating).each do |message| %>
-        <div><%= message %></div>
-        <% end %>
+  <div>
+    <%= form.label :rating %><br>
+    <%= form.text_area :rating %><br>
+    <% @item.errors.full_messages_for(:rating).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
   </div>
-
   <div>
     <%= form.submit %>
   </div>
 <% end %>
 
-<h4>
-<%= link_to "Home", "/users/" %>
-</h4>
+<h4><%= link_to "Home", "/users/" %></h4>

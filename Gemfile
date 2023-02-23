@@ -30,7 +30,7 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+# gem 'redis', '~> 4.0'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -52,12 +52,15 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'byebug'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  # gem 'web-console'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'byebug'
   gem 'letter_opener'
   gem 'mail_interceptor', group: %i[development staging]
   gem 'web-console'
@@ -72,10 +75,16 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'faker'
+  gem 'json_matchers'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
 gem 'activestorage'
 gem 'cancancan'
 gem 'devise'
+gem 'fabrication'
+gem 'jsonapi-serializer'
 gem 'rolify'
+gem 'sidekiq'
+gem 'simplecov', require: false, group: :test

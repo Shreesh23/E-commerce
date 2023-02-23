@@ -12,7 +12,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_230_215_105_832) do
+ActiveRecord::Schema[7.0].define(version: 20_230_221_052_724) do
+  create_table 'add_to_carts', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'price'
+    t.integer 'rating'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'beauties', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'price'
+    t.integer 'rating'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'books', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'price'
+    t.integer 'rating'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'cloths', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'price'
+    t.integer 'rating'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'electronics', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'price'
+    t.integer 'rating'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'footwears', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'price'
+    t.integer 'rating'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'groceries', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'price'
+    t.integer 'rating'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
   create_table 'items', force: :cascade do |t|
     t.string 'name'
     t.integer 'price'
@@ -20,6 +83,15 @@ ActiveRecord::Schema[7.0].define(version: 20_230_215_105_832) do
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.integer 'user_id'
+  end
+
+  create_table 'myorders', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'price'
+    t.integer 'rating'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
   create_table 'ordered_items', force: :cascade do |t|
@@ -35,6 +107,8 @@ ActiveRecord::Schema[7.0].define(version: 20_230_215_105_832) do
     t.integer 'total_price'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.integer 'user_id'
+    t.index ['user_id'], name: 'index_orders_on_user_id'
   end
 
   create_table 'roles', force: :cascade do |t|
@@ -67,4 +141,6 @@ ActiveRecord::Schema[7.0].define(version: 20_230_215_105_832) do
     t.index %w[user_id role_id], name: 'index_users_roles_on_user_id_and_role_id'
     t.index ['user_id'], name: 'index_users_roles_on_user_id'
   end
+
+  add_foreign_key 'orders', 'users'
 end

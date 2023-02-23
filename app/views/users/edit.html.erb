@@ -1,0 +1,8 @@
+<br><br>
+<%= form_with(model: @user) do |form| %>
+  <%= form.collection_check_boxes :role_ids,Role.all, :id, :name %>
+  <%= @user.errors[:roles]%>
+  <%= form.button :submit %>
+<% end %>
+
+<h4><%= link_to "Home", "/users/" %></h4>

@@ -1,6 +1,5 @@
 <style>
-  
-  .gradient-custom-2 {
+.gradient-custom-2 {
 /* fallback for old browsers */
 background: #fccb90;
 
@@ -23,7 +22,27 @@ border-bottom-right-radius: .3rem;
 }
 }
 </style>
-<section class="h-100 gradient-form" style="background-color: White">
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:Black">
+  <div class="container">
+      <a class="navbar-brand" href="#page-top"><% image_path 'lotus-flower.png'%> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars ms-1"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/users/sign_in">LOgin</a></li>
+          <li class="nav-item"><a class="nav-link" href="/users/sign_up">SignUp</a></li>
+          <%= button_to 'SignOut', destroy_user_session_path, method: :delete %>
+        </ul>
+      </div>
+  </div>
+</nav>
+<section class="h-100 gradient-form" style="background-color: White;padding:1rem">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-xl-10">
@@ -31,45 +50,50 @@ border-bottom-right-radius: .3rem;
           <div class="row g-0">
             <div class="col-lg-6">
               <div class="card-body p-md-5 mx-md-4">
-
                 <div class="text-center">
                   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                    style="width: 185px;" alt="logo">
-                  <h4 class="mt-1 mb-5 pb-1">Add Item</h4>
+                  style="width: 185px;" alt="logo">
+                  <h2 class="mt-1 mb-5 pb-1">Add Item!</h2>
                 </div>
-                <center>
-                <section >
                 <%= form_with model: @item do |form| %>
-                <div>
+                  <div>
                     <%= form.label :name %><br>
                     <%= form.text_field :name %>
                     <% @item.errors.full_messages_for(:name).each do |message| %>
                     <div><%= message %></div>
                     <% end %>
-                </div>
-
-                <div>
+                  </div>
+                  <div>
                     <%= form.label :price %><br>
                     <%= form.text_area :price %><br>
                     <% @item.errors.full_messages_for(:price).each do |message| %>
                     <div><%= message %></div>
                     <% end %>
-                </div>
-                <div>
-                    <%= form.label :rating %><br>
-                    <%= form.text_area :rating %><br>
-                    <% @item.errors.full_messages_for(:rating).each do |message| %>
+                  </div>
+                  <div>
+                      <%= form.label :rating %><br>
+                      <%= form.text_area :rating %><br>
+                      <% @item.errors.full_messages_for(:rating).each do |message| %>
+                      <div><%= message %></div>
+                      <% end %>
+                  </div>
+                  <div>
+                    <%= form.label :user_id %><br>
+                    <%= form.text_area :user_id %><br>
+                    <% @item.errors.full_messages_for(:user_id).each do |message| %>
                     <div><%= message %></div>
                     <% end %>
-                </div>
-
-                <div>
-                    <%= form.submit %>
-                </div>
+                  </div>
+                  <div><%= form.submit %> </div>
                 <% end %>
-                </section>
-                </center>
-
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4">We are more than just a company</h4>
+                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               </div>
             </div>
           </div>
@@ -78,3 +102,210 @@ border-bottom-right-radius: .3rem;
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

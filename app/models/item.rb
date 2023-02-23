@@ -3,9 +3,16 @@
 require 'csv'
 class Item < ApplicationRecord
   belongs_to :user
+  has_many :beauties
+  has_many :electronics
+  has_many :clothes
+  has_many :footwears
+  has_many :books
+
   validates :name, presence: true
   validates :price, presence: true
   validates :rating, inclusion: { in: 0..5 }, presence: { message: ' Must be within 0-5' }
+
   def self.to_csv
     posts = all
     CSV.generate do |csv|

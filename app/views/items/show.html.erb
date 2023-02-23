@@ -33,16 +33,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="#portfolio">Products</a></li>
-              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="/users/sign_in">LOgin</a></li>
-              <li class="nav-item"><a class="nav-link" href="/users/sign_up">SignUp</a></li>
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#portfolio">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/users/sign_in">LOgin</a></li>
+            <li class="nav-item"><a class="nav-link" href="/users/sign_up">SignUp</a></li>
           </ul>
       </div>
   </div>
 </nav>
-
 <h3 style="font-family: Arial, Helvetica, sans-serif"><b>My Products</b></h3>
 <%= link_to "Export It", items_path(format: 'csv') %>
 <li class=""><%= button_to 'SignOut', destroy_user_session_path, method: :delete %></li>
@@ -55,13 +54,13 @@
       <th>Ratings (Out Of 5)</th>
       <th>Actions</th>
     </tr>
-  <% @items.each do |items|%>
+  <% @user_item.each do |user_item|%>
     <tr>
-      <td><%= items.id%></td>
-      <td><%= items.name%></td>
-      <td><%= items.price%></td>
+      <td><%= user_item.id%></td>
+      <td><%= user_item.name%></td>
+      <td><%= user_item.price%></td>
       <td>
-      <span><%= items.rating%></span></td>
+      <span><%= user_item.rating%></span></td>
       <td>
       <span><%= link_to "Destroy", item_path(items) ,data: {
                   turbo_method: :delete,

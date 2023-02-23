@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 class ItemsController < ApplicationController
-  before_action :authenticate_user!
   def index
     @items = Item.all
-
     respond_to do |format|
       format.html
       format.csv { send_data Item.to_csv, filename: "items-#{DateTime.now.strftime('%d%m%Y%H%M')}.csv" }
@@ -18,24 +16,18 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-
-      # CrudNotificationMailer.create_notification(@item).deliver_later
-      redirect_to users_path
-
+      # CreateJob.set(wait: 1.minutes).perform_later(@item)
+      redirect_to items_path
     else
-
       render :new, status: :unprocessable_entity
-
     end
   end
 
   def destroy
     @item = Item.find(params[:id])
-
     @item.delete
-    # CrudNotificationMailer.delete_notification(@item). deliver_now
-
-    redirect_to(controller: :users, action: :show)
+    # DeleteJob.perform_later(@item)
+    redirect_to(controller: :items, action: :index)
   end
 
   def edit
@@ -46,20 +38,16 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.update(item_params)
-
-      # CrudNotificationMailer.update_notification(@item).deliver_later
-
-      redirect_to(controller: :users, action: :show)
+      # UpdateJob.perform_later(@item)
+      redirect_to(controller: :items, action: :index)
     else
-
       render :edit, status: :unprocessable_entity
-
     end
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :rating)
+    params.require(:item).permit(:name, :price, :rating, :user_id)
   end
 end
